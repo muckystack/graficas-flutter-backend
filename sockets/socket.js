@@ -12,4 +12,8 @@ io.on('connection', (client) => {
     console.log(payload);
     io.emit('mensaje', { admin: 'Nuevo mensaje' });
   });
+
+  client.on('emitir-mensaje', (payload) => {
+    io.emit('nuevo-mensaje', 'Hey!!!!');
+  });
 });
