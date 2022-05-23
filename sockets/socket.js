@@ -33,8 +33,8 @@ io.on('connection', (client) => {
   });
 
   client.on('add-band', (payload) => {
-    console.log(payload);
-    bands.addBand(payload);
+    const newBand = new Band(payload.name);
+    bands.addBand(newBand);
     io.emit('active-bands', bands.getBands());
   });
 
