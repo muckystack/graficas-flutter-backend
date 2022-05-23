@@ -32,6 +32,12 @@ io.on('connection', (client) => {
     io.emit('active-bands', bands.getBands());
   });
 
+  client.on('add-band', (payload) => {
+    console.log(payload);
+    bands.addBand(payload);
+    io.emit('active-bands', bands.getBands());
+  });
+
   // client.on('emitir-mensaje', (payload) => {
   //   // io.emit('nuevo-mensaje', 'Hey!!!!'); // Emite a todos
   //   client.broadcast.emit('nuevo-mensaje', payload); // Emite a todos menos el que lo emitió
